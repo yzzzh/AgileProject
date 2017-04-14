@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - nba_info@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="nba_info">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <schema id="7" parent="1" name="test"/>
+    <table id="8" parent="2" name="arena"/>
+    <table id="9" parent="2" name="coach"/>
+    <table id="10" parent="2" name="player"/>
+    <table id="11" parent="2" name="student"/>
+    <table id="12" parent="2" name="team"/>
+    <column id="13" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="8" name="ArenaTeam">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="15" parent="8" name="ArenaStartEnd">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="16" parent="8" name="Arena">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="17" parent="8" name="ArenaLocation">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="18" parent="8" name="ArenaCapacity">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="19" parent="8" name="Arena">
+      <ColNames>Arena</ColNames>
+    </index>
+    <index id="20" parent="8" name="Arena-Team">
+      <ColNames>ArenaTeam</ColNames>
+    </index>
+    <key id="21" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="22" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="9" name="CoachName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="24" parent="9" name="TeamSeason">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="25" parent="9" name="TeamName">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="26" parent="9" name="CoachName">
+      <ColNames>CoachName</ColNames>
+    </index>
+    <key id="27" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="28" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="10" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="30" parent="10" name="Season">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="31" parent="10" name="Age">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="32" parent="10" name="PTS">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="33" parent="10" name="G">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="34" parent="10" name="Lg">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="35" parent="10" name="TeamName">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="36" parent="10" name="FKa7nce5a1cap6oohjvk6u49v3c">
+      <ColNames>TeamName</ColNames>
+    </index>
+    <key id="37" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="10" name="FKa7nce5a1cap6oohjvk6u49v3c">
+      <ColNames>TeamName</ColNames>
+      <RefSchemaName>nba_info</RefSchemaName>
+      <RefTableName>team</RefTableName>
+      <RefColNames>TeamName</RefColNames>
+    </foreign-key>
+    <foreign-key id="39" parent="10" name="Player-TeamName">
+      <ColNames>TeamName</ColNames>
+      <RefSchemaName>nba_info</RefSchemaName>
+      <RefTableName>team</RefTableName>
+      <RefColNames>TeamName</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="40" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="11" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="42" parent="11" name="age">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="43" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="45" parent="12" name="TeamName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="46" parent="12" name="TeamSeason">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="47" parent="12" name="TeamAbbr">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="48" parent="12" name="TeamFrom">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="49" parent="12" name="TeamTo">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="50" parent="12" name="TeamYrs">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="51" parent="12" name="TeamG">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="52" parent="12" name="TeamW">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="53" parent="12" name="TeamL">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="54" parent="12" name="TeamChamp">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="55" parent="12" name="TeamCoaches">
+      <Position>12</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="56" parent="12" name="Arena">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="57" parent="12" name="TeamName">
+      <ColNames>TeamName</ColNames>
+    </index>
+    <index id="58" parent="12" name="TeamName_2">
+      <ColNames>TeamName
+TeamAbbr</ColNames>
+    </index>
+    <index id="59" parent="12" name="TeamSeason">
+      <ColNames>TeamSeason</ColNames>
+    </index>
+    <index id="60" parent="12" name="FK8c6u7ecttqji0tasnpxrmmmjj">
+      <ColNames>TeamCoaches</ColNames>
+    </index>
+    <index id="61" parent="12" name="FKmdnvcyxcm5pc1hk96l2yqnkwr">
+      <ColNames>Arena</ColNames>
+    </index>
+    <key id="62" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="63" parent="12" name="FK8c6u7ecttqji0tasnpxrmmmjj">
+      <ColNames>TeamCoaches</ColNames>
+      <RefSchemaName>nba_info</RefSchemaName>
+      <RefTableName>coach</RefTableName>
+      <RefColNames>CoachName</RefColNames>
+    </foreign-key>
+    <foreign-key id="64" parent="12" name="Team-Coach">
+      <ColNames>TeamCoaches</ColNames>
+      <RefSchemaName>nba_info</RefSchemaName>
+      <RefTableName>coach</RefTableName>
+      <RefColNames>CoachName</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="65" parent="12" name="FKmdnvcyxcm5pc1hk96l2yqnkwr">
+      <ColNames>Arena</ColNames>
+      <RefSchemaName>nba_info</RefSchemaName>
+      <RefTableName>arena</RefTableName>
+      <RefColNames>Arena</RefColNames>
+    </foreign-key>
+    <foreign-key id="66" parent="12" name="Team-Arena">
+      <ColNames>Arena</ColNames>
+      <RefSchemaName>nba_info</RefSchemaName>
+      <RefTableName>arena</RefTableName>
+      <RefColNames>Arena</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
