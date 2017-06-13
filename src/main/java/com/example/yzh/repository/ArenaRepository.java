@@ -20,6 +20,10 @@ public interface ArenaRepository extends JpaRepository<ArenaEntity, Integer> {
     public List<ArenaEntity> findByName(@Param("name") String name);
 
     @Transactional
+    @Query("select distinct arena.arena from ArenaEntity arena")
+    public List<String> findName();
+
+    @Transactional
     @Query("select arena from ArenaEntity arena")
     public Page<ArenaEntity> findByPage(Pageable pageable);
 }

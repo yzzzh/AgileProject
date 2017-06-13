@@ -41,12 +41,12 @@
                 <th>操作</th>
             </tr>
 
-            <c:forEach items="${teamList}" var="team">
+            <c:forEach items="${teamList}" var="coach">
 
                 <tr>
-                    <td>${team.teamName}</td>
+                    <td>${coach.teamName}</td>
                     <td>
-                        <a href="/team/detail/${team.teamName}" type="button" class="btn btn-sm btn-danger">详情</a>
+                        <a href="/team/detail/${coach.teamName}" type="button" class="btn btn-sm btn-danger">详情</a>
                     </td>
                 </tr>
             </c:forEach>

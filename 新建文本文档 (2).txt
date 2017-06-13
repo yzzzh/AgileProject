@@ -1,0 +1,34 @@
+delete from team where 
+id not in (select k from (select min(t.id) as k from team t group by 
+t.teamname,t.teamseason,t.teamabbr,t.teamfrom,t.teamto,t.teamyrs,t.teamg,
+t.teamw,t.teaml,t.teamchamp,t.teamcoaches,t.arena) t)
+and 
+teamname in (select k from (select t.teamname as k from team t group by 
+t.teamname,t.teamseason,t.teamabbr,t.teamfrom,t.teamto,t.teamyrs,t.teamg,
+t.teamw,t.teaml,t.teamchamp,t.teamcoaches,t.arena) t)
+
+
+
+
+delete from player where 
+id not in (select k from (select min(p.id) as k from player p group by
+p.name,p.season,p.age,p.pts,p.g,p.lg,p.teamname) p )
+and 
+name in (select k from (select p.name as k from player p group by
+p.name,p.season,p.age,p.pts,p.g,p.lg,p.teamname) p )
+
+
+delete from coach where 
+id not in (select k from (select min(c.id) as k from coach c group by 
+c.coachname,c.teamseason,c.teamname) c)
+and 
+coachname in (select k from (select c.coachname as k from coach c group by 
+c.coachname,c.teamseason,c.teamname) c)
+
+
+delete from arena where 
+id not in (select k from (select min(a.id) as k from arena a group by 
+a.arenateam,a.arenastartend,a.arena,a.arenalocation,a.arenacapacity) a)
+and 
+arenateam in (select k from (select a.arenateam as k from arena a group by 
+a.arenateam,a.arenastartend,a.arena,a.arenalocation,a.arenacapacity) a)

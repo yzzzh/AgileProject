@@ -12,7 +12,6 @@
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
 
-
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
 
@@ -39,4 +38,5 @@
 
     <!-- 开启事务管理注解 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
+
 </beans>

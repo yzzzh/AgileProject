@@ -24,6 +24,8 @@ public class ArenaContrller {
     @Autowired
     ArenaRepository arenaRepository;
 
+    List<String> arenaList = null;
+
     final int pageSize = 20;
     int pageCount = 0;
 
@@ -50,5 +52,26 @@ public class ArenaContrller {
         modelMap.addAttribute("arenaList", arenaList);
         modelMap.addAttribute("arenaName", name);
         return "arena/arenaDetail";
+    }
+
+    @RequestMapping("/arenas")
+    public String arenaIndex(ModelMap modelMap) {
+        if (arenaList == null) {
+            arenaList = arenaRepository.findName();
+        }
+        modelMap.addAttribute("arenaList", arenaList);
+        return "arena/arenas";
+    }
+
+    @RequestMapping("/arenas/{name}")
+    public String arenaIndexDetail(@PathVariable("name") String name, ModelMap modelMap) {
+        if (arenaList == null) {
+            arenaList = arenaRepository.findName();
+        }
+        List<ArenaEntity> arenaDetailList = arenaRepository.findByName(name);
+        modelMap.addAttribute("arenaDetailList", arenaDetailList);
+        modelMap.addAttribute("arenaList", arenaList);
+        modelMap.addAttribute("arenaName", name);
+        return "arena/arenas";
     }
 }

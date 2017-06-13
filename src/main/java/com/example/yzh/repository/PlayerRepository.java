@@ -20,6 +20,10 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Integer> {
     public List<PlayerEntity> findByName(@Param("name") String name);
 
     @Transactional
+    @Query("select distinct player.name from PlayerEntity player")
+    public List<String> findName();
+
+    @Transactional
     @Query("select player from PlayerEntity player")
     public Page<PlayerEntity> findByPage(Pageable pageable);
 }

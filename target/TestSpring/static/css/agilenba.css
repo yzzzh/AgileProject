@@ -1,0 +1,136 @@
+body {
+    font-size: medium;
+}
+.background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.background img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    filter: alpha(opacity=60);
+}
+.container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+nav {
+    text-align: center;
+    background-color: #C8C8C8;
+    margin: auto;
+    opacity: 0.7;
+    width: 700px;
+}
+nav ul {
+    margin: 0px;
+    list-style-type: none;
+    padding: 5px 0px 5px 0px;
+}
+nav ul li {
+    display: inline;
+    padding: 5px 10px 5px 10px;
+}
+nav ul li a:link, nav ul li a:visited {
+    color: black;
+    border-bottom: none;
+    font-weight: bold;
+}
+nav ul li.selected {
+    background-color: #F0F0F0;
+}
+div#tableContainer {
+    display: table;
+    width: 700px;
+    margin: auto;
+    background-color: #F0F0F0;
+    opacity: 0.9;
+}
+div#tableRow {
+    display: table-row;
+}
+div#detailContainer {
+    display: table-cell;
+    padding: 15px;
+    vertical-align: top;
+    text-align: center;
+}
+div#detailContainer header {
+    font-weight: bold;
+    font-size: 300%;
+}
+#detailTable {
+    margin: auto;
+    border-collapse: collapse;
+}
+#detailTable tr:nth-child(odd) {
+    background-color: #C8C8C8;
+}
+#detailTable th,td {
+    border: thin dashed black;
+    padding: 5px;
+}
+div#indexContainer {
+    display: table-cell;
+    width: 160px;
+    padding: 10px;
+    vertical-align: top;
+    border-right: double;
+    font-weight: bold;
+}
+div#search {
+    border-bottom: double;
+    text-align: center;
+}
+input#text {
+    width: 100%;
+    border: thin dashed;
+}
+input#submit {
+    margin: 5px;
+    background-color: #C8C8C8;
+    border: thin outset;
+    opacity: 1;
+}
+div#index {
+    border: thin dashed black;
+    background-color: #C8C8C8;
+    overflow: auto;
+}
+#index ul {
+    text-align: center;
+    padding: 0px;
+    list-style-type: none;
+    height: 400px;
+}
+#indexItem li:hover {
+    background-color: darkgray;
+}
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.flex-item {
+    width: 40%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1%;
+}
+.flex-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}

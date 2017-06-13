@@ -20,6 +20,10 @@ public interface TeamRepository extends JpaRepository<TeamEntity, Integer> {
     public List<TeamEntity> findByName(@Param("name") String name);
 
     @Transactional
+    @Query("select distinct team.teamName from TeamEntity team")
+    public List<String> findName();
+
+    @Transactional
     @Query("select team from TeamEntity team")
     public Page<TeamEntity> findByPage(Pageable pageable);
 }

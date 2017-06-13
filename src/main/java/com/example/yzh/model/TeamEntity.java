@@ -1,6 +1,7 @@
 package com.example.yzh.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * Created by YZH on 2017/4/13.

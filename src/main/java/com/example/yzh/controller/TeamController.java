@@ -1,20 +1,22 @@
 package com.example.yzh.controller;
 
-import com.example.yzh.model.PlayerEntity;
 import com.example.yzh.model.TeamEntity;
-import com.example.yzh.repository.PlayerRepository;
 import com.example.yzh.repository.TeamRepository;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static org.springframework.data.repository.init.ResourceReader.Type.JSON;
 
 /**
  * Created by YZH on 2017/4/13.
@@ -23,6 +25,8 @@ import java.util.List;
 public class TeamController {
     @Autowired
     TeamRepository teamRepository;
+
+    List<String> teamList = null;
 
     final int pageSize = 20;
     int pageCount = 0;
@@ -51,4 +55,37 @@ public class TeamController {
         modelMap.addAttribute("teamName", name);
         return "team/teamDetail";
     }
+
+    @RequestMapping("/teams")
+    public String teamIndex(ModelMap modelMap) {
+        if (teamList == null) {
+            teamList = teamRepository.findName();
+        }
+        modelMap.addAttribute("teamList", teamList);
+        return "team/teams";
+    }
+
+    @RequestMapping("/teams/{name}")
+    public String teamIndexDetail(@PathVariable("name") String name, ModelMap modelMap) {
+        if (teamList == null) {
+            teamList = teamRepository.findName();
+        }
+        List<TeamEntity> teamDetailList = teamRepository.findByName(name);
+        modelMap.addAttribute("teamDetailList", teamDetailList);
+        modelMap.addAttribute("teamList", teamList);
+        modelMap.addAttribute("teamName", name);
+        return "team/teams";
+    }
+
+    @RequestMapping(value="/team/getTeamList")
+    public @ResponseBody List<String> getTeamList() throws IOException{
+        return teamList;
+    }
+
+    @RequestMapping(value="/x",method=RequestMethod.GET)
+    public @ResponseBody String paramTest(){
+        System.out.println(123);
+        return teamList.toString();
+    }
+
 }

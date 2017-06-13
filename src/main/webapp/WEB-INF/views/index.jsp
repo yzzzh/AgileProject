@@ -22,7 +22,7 @@
 <body>
 <div class="container">
     <h1>首页</h1>
-    <a href="/player/1" type="button" class="btn btn-sm btn-success">球员列表</a>
+    <a href="/players" type="button" class="btn btn-sm btn-success">球员列表</a>
     <a href="/team/1" type="button" class="btn btn-sm btn-warning">球队列表</a>
     <a href="/coach/1" type="button" class="btn btn-sm btn-danger">教练列表</a>
     <a href="/arena/1" type="button" class="btn btn-sm btn-danger">球馆列表</a>

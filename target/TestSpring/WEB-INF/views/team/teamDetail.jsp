@@ -7,7 +7,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -47,26 +46,24 @@
             <th>球馆</th>
         </tr>
 
-        <c:forEach items="${teamList}" var="team">
+        <c:forEach items="${teamList}" var="coach">
             <tr>
-                <td>${team.teamSeason}</td>
-                <td>${team.teamAbbr}</td>
-                <td>${team.teamFrom}</td>
-                <td>${team.teamTo}</td>
-                <td>${team.teamYrs}</td>
-                <td>${team.teamG}</td>
-                <td>${team.teamW}</td>
-                <td>${team.teamL}</td>
-                <td>${team.teamChamp}</td>
-                <td>${team.teamCoaches}</td>
-                <td>${team.arena}</td>
+                <td>${coach.teamSeason}</td>
+                <td>${coach.teamAbbr}</td>
+                <td>${coach.teamFrom}</td>
+                <td>${coach.teamTo}</td>
+                <td>${coach.teamYrs}</td>
+                <td>${coach.teamG}</td>
+                <td>${coach.teamW}</td>
+                <td>${coach.teamL}</td>
+                <td>${coach.teamChamp}</td>
+                <td>${coach.teamCoaches}</td>
+                <td>${coach.arena}</td>
             </tr>
         </c:forEach>
 
     </table>
 </div>
-
-
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->

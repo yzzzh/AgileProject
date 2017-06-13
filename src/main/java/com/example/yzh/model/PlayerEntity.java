@@ -128,4 +128,5 @@ public class PlayerEntity {
         result = 31 * result + (teamName != null ? teamName.hashCode() : 0);
         return result;
     }
+
 }

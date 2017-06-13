@@ -1,0 +1,73 @@
+body{
+    background-attachment: fixed;
+}
+.mynav{
+    background: rgba(34,34,34,0.84);
+    border:0px;
+}
+
+.mycontainer{
+    margin-top: 100px;
+
+}
+
+#detailContainer{
+    overflow: auto;
+    max-height: 500px;
+}
+
+.indexContainer, .detail{
+    border-radius: 1px;
+    border-color: black;
+    border: 1px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    margin: 5px 15px 5px;
+    padding:20px 0;
+    background: rgba(50,50, 50,0.98);
+    color: snow;
+}
+
+header{
+    font-size: 20px;
+    padding:20px 0;
+    text-align: center;
+}
+
+.mytable, th{
+    text-align: center;
+}
+
+a{
+    color: snow;
+}
+
+.mysearch{
+    margin: 5px;
+}
+.indexContainer{
+    max-height: 500px;
+}
+
+.slide{
+    height: 400px;
+    overflow: auto;
+
+}
+::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+    background: rgba(0,0,0,0);
+}
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-radius: 10px;
+    background-color: rgba(70,70,70,0.9);
+}
+
+::-webkit-scrollbar-thumb{
+    /*width: 10px;*/
+    height: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: azure;
+}

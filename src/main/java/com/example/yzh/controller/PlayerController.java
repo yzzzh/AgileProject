@@ -23,6 +23,8 @@ public class PlayerController {
     @Autowired
     PlayerRepository playerRepository;
 
+    List<String> playerList = null;
+
     final int pageSize = 20;
     int pageCount = 0;
 
@@ -49,5 +51,26 @@ public class PlayerController {
         modelMap.addAttribute("playerList", playerList);
         modelMap.addAttribute("playerName", name);
         return "player/playerDetail";
+    }
+
+    @RequestMapping("/players")
+    public String playerIndex(ModelMap modelMap) {
+        if (playerList == null) {
+            playerList = playerRepository.findName();
+        }
+        modelMap.addAttribute("playerList", playerList);
+        return "player/players";
+    }
+
+    @RequestMapping("/players/{name}")
+    public String playerIndexDetail(@PathVariable("name") String name, ModelMap modelMap) {
+        if (playerList == null) {
+            playerList = playerRepository.findName();
+        }
+        List<PlayerEntity> playerDetailList = playerRepository.findByName(name);
+        modelMap.addAttribute("playerDetailList", playerDetailList);
+        modelMap.addAttribute("playerList", playerList);
+        modelMap.addAttribute("playerName", name);
+        return "player/players";
     }
 }

@@ -20,6 +20,10 @@ public interface CoachRepository extends JpaRepository<CoachEntity, Integer> {
     public List<CoachEntity> findByName(@Param("name") String name);
 
     @Transactional
+    @Query("select distinct coach.coachName from CoachEntity coach")
+    public List<String> findName();
+
+    @Transactional
     @Query("select coach from CoachEntity coach")
     public Page<CoachEntity> findByPage(Pageable pageable);
 }

@@ -24,6 +24,8 @@ public class CoachController {
     @Autowired
     CoachRepository coachRepository;
 
+    List<String> coachList = null;
+
     final int pageSize = 20;
     int pageCount = 0;
 
@@ -51,5 +53,26 @@ public class CoachController {
         System.out.println(coachList.size());
         modelMap.addAttribute("coachName", name);
         return "coach/coachDetail";
+    }
+
+    @RequestMapping("/coaches")
+    public String coachIndex(ModelMap modelMap) {
+        if (coachList == null) {
+            coachList = coachRepository.findName();
+        }
+        modelMap.addAttribute("coachList", coachList);
+        return "coach/coaches";
+    }
+
+    @RequestMapping("/coaches/{name:.+}")
+    public String coachIndexDetail(@PathVariable("name") String name, ModelMap modelMap) {
+        if (coachList == null) {
+            coachList = coachRepository.findName();
+        }
+        List<CoachEntity> coachDetailList = coachRepository.findByName(name);
+        modelMap.addAttribute("coachDetailList", coachDetailList);
+        modelMap.addAttribute("coachList", coachList);
+        modelMap.addAttribute("coachName", name);
+        return "coach/coaches";
     }
 }
